@@ -82,13 +82,7 @@ const Profile = () => {
           <div className="divide-y divide-border">
             <SettingsItem
               icon={Bell}
-              title="Activity Notifications"
-              onClick={() => router.push("/profile/notifications")}
-            />
-
-            <SettingsItem
-              icon={Sparkles}
-              title="Promotions & Offers"
+              title="Notifications"
               onClick={() => router.push("/profile/notifications")}
             />
           </div>
