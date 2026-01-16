@@ -8,36 +8,34 @@ import { socialAuth } from "@/actions"
 const Login = () => {
 
   const submit = async (type: string) => {
-        switch (type) {
-            case "google":
-                const urlGoogle = await socialAuth(
-                    `${process.env.NEXT_PUBLIC_API_URL}/auth/google/url`
-                )
-                window.location.href = urlGoogle
-                break;
+    switch (type) {
+      case "google":
+        const urlGoogle = await socialAuth(
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/google/url`
+        )
+        window.location.href = urlGoogle
+        break;
 
-            case "x":
-                const urlX = await socialAuth(
-                    `${process.env.NEXT_PUBLIC_API_URL}/auth/x/url`
-                )
-                window.location.href = urlX
-                break
-        }
+      case "x":
+        const urlX = await socialAuth(
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/x/url`
+        )
+        window.location.href = urlX
+        break
     }
+  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <div className="flex-1 flex flex-col justify-between p-6 max-w-md mx-auto w-full">
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-full aspect-3/4 bg-linear-to-br from-muted to-secondary rounded-3xl flex items-center justify-center">
-            <div className="w-32 h-32 bg-primary/10 rounded-3xl flex items-center justify-center rotate-12 transform hover:rotate-0 transition-transform duration-500">
-              <Package className="w-16 h-16 text-primary" />
-            </div>
+      <div className="flex-1 flex flex-col justify-center p-6 max-w-md mx-auto w-full gap-8">
+        <div className="flex items-center justify-center">
+          <div className="w-full aspect-3/4 bg-transparent rounded-3xl flex items-center justify-center overflow-hidden">
+            <img src="/auth-image.png" alt="Auth Image" className="w-full h-full object-contain" />
           </div>
         </div>
 
-        <div className="space-y-6 pb-8">
-          <div>
+        <div className="space-y-6">
+          <div className="text-center">
             <h1 className="text-3xl font-bold mb-2">Welcome Aboard</h1>
             <p className="text-sm text-muted-foreground">
               Please select how you would like to continue. We assume you have read and understood our{" "}
@@ -48,8 +46,7 @@ const Login = () => {
 
           <div className="space-y-3">
             <Button
-              variant="secondary"
-              className="w-full h-14 text-base font-medium justify-start gap-3"
+              className="w-full h-14 text-base font-medium justify-center gap-3 bg-red-600 text-white hover:bg-red-700 shadow-sm transition-all duration-200 hover:shadow-md"
               onClick={() => submit("google")}
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -70,7 +67,7 @@ const Login = () => {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              Google
+              Continue with Google
             </Button>
           </div>
         </div>
